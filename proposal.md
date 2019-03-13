@@ -1,6 +1,6 @@
 # Project 2: Booking System Design
 
-# Group Name: AJG
+# Group Name: JAG
 Members:
   - George Lonngren
   - Austyn Gerzevske
