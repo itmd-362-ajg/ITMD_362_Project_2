@@ -26,6 +26,7 @@ Sign-up fields will include:
   - Name, Age (must be 21 or older because mostly at pubs)
   - Chosen Listed Event / Venue, Location of Event
   - Number of Tickets
+  - T-Shirt Size
   - Available Seats
   - Email Address
   - Phone Number
