@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&subset=latin-ext");
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans:600,700,800&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -18,22 +20,23 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 */
 
 html {
-  background: #222;
-  color: #EEE;
-  font-family: Merriweather, sans-serif;
+  background: #ffffff;
+  color: #666699;
+  font-family: 'Encode Sans', sans-serif;
   font-size: 1.125em; /* 18 / 16 = 1.125 */
   line-height: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
 }
 h1 {
   font-size: 1.618em; /* 29.124 / 18 = 1.618 */
   line-height: 1.5107814861em; /* 44 / 29.124 = 1.5107814861 */
-  color: #43b0b7;
+  color: #cc0000;
 }
 p {
   padding-bottom: 22px;
+  font-family: 'Playfair Display', serif;
 }
 label {
-  color: #43b0b7;
+  color: #EEE;
 }
 a[role="button"] {
   display: block;
@@ -81,8 +84,8 @@ input[type="tel"]:focus {
 }
 input[type="submit"],
 #eh-submit {
-  background-color: #f1660a;
-  color: #EEE;
+  background-color: #ffffff;
+  color: #666699;
   opacity: 1;
   width: 100%;
   transition: opacity 2s;
@@ -94,11 +97,11 @@ input[type="submit"]:disabled {
   font-style: italic;
 }
 .hint b {
-  color: #f1660a;
+  color: #b3b3b3;
 }
 
 #order-form {
-  background: #EEE;
+  background: #cc3300;
   color: #222;
 }
 
@@ -133,12 +136,12 @@ input[type="submit"]:disabled {
 }
 #size-touch a {
   background-color: #EEE;
-  color: #f1660a;
+  color: #666699;
   padding: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
-  border: 1px solid #f1660a;
+  border: 1px solid #b3b3b3;
 }
 #size-touch a.selected {
-  background-color: #f1660a;
+  background-color: #b3b3b3;
   color: #EEE;
 }
 
