@@ -100,13 +100,13 @@ input[type="submit"]:disabled {
   color: #b3b3b3;
 }
 
-#order-form {
+#signup-form {
   background: #cc3300;
   color: #222;
 }
 
 /* Form Layout */
-#order-form ol {
+#signup-form ol {
   /*
   display: flex;
   align-items: flex-end;
@@ -116,11 +116,11 @@ input[type="submit"]:disabled {
 
   padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
 }
-#order-form li {
+#signup-form li {
   flex: 1 0 auto;
   padding-bottom: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
 }
-#order-form li#size-input {
+#signup-form li#size-input {
   flex: 1 1 268px;
 }
 
