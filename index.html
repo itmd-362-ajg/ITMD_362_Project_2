@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Form Elements and Events</title>
+  <title>exploit_Disrupt</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
   <link rel="stylesheet" href="screen.css" />
@@ -9,28 +9,53 @@
 <body>
   <main id="content">
     <article id="form-explainer">
-      <h1>Just Coffee</h1>
+      <h1>exploit_Disrupt</h1>
       <p>
-        Ordering coffee from Just Coffee is simple. Just choose your size and share your ZIP code.
-        We’ll figure out the rest. After all, It’s Just Coffee!™
+        Signup for meetups here.
       </p>
     </article>
-    <form id="order-form" action="#null" method="get">
+    <form id="signup-form" action="#null" method="get">
       <ol>
-        <li id="zip-area">
-          <label for="zip">ZIP Code</label>
-          <input type="text" name="zip" id="zip" />
+        <li id="first-name-area">
+          <label for="first-name">First Name</label>
+          <input type="text" name="first-name" id="first-name" placeholder="John" />
         </li>
-        <li id="city-area">
-          <label for="city">City</label>
-          <input type="text" name="city" id="city" />
+        <li id="last-name-area">
+          <label for="last-name">Last Name</label>
+          <input type="text" name="last-name" id="last-name" placeholder="Doe" />
         </li>
-        <li id="state-area">
-          <!--TODO: Use <datalist>-->
-          <label for="state">State</label>
-          <input type="text" name="state" id="state" />
+        <li id="age-area">
+          <label for="age">Choose Your age</label>
+          <select name="age" id="age">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value=">21">>21</option>
+          </select>
         </li>
-        <li id="size-area">
+        <li id="number-tieckets-area">
+          <label for="tickets">Number of Tickets</label>
+          <input type="number" name="tickets" id="tickets" min="1" max="20" />
+        </li>
+        <li id="shirt-size">
           <label for="size">Choose Your Size</label>
           <select name="size" id="size">
             <option value="small">Small</option>
@@ -38,6 +63,67 @@
             <option value="large">Large</option>
           </select>
         </li>
+        <li>
+          <label for="email-area">Email Address</label>
+          <input type="email" name="email" id="email" placeholder="you@example.com" />
+        </li>
+        <li>
+          <label for="phone-area">Phone Number</label>
+          <input type="tel" name="phone" id="phone" placeholder="123-456-7890" />
+        </li>
+        <li>
+          <p>Mailing Address</p>
+          <ol>
+            <li id="address-area">
+              <label for="address">Address</label>
+              <input type="text" name="address" id="address" />
+            </li>
+            <li id="zip-area">
+              <label for="zip">ZIP Code</label>
+              <input type="text" name="zip" id="zip" />
+            </li>
+            <li id="city-area">
+              <label for="city">City</label>
+              <input type="text" name="city" id="city" />
+            </li>
+            <li id="state-area">
+              <label for="state">State</label>
+              <input type="text" name="state" id="state" />
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          <p>Billing Address</p>
+          <ol>
+            <li id="same-address-area">
+              <input type="checkbox" name="same-address" id="same-address" />
+              <label for="same-address">Same as Mailing address</label>
+            </li>
+            <li id="address-area">
+              <label for="address">Address</label>
+              <input type="text" name="address" id="address" />
+            </li>
+            <li id="zip-area">
+              <label for="zip">ZIP Code</label>
+              <input type="text" name="zip" id="zip" />
+            </li>
+            <li id="city-area">
+              <label for="city">City</label>
+              <input type="text" name="city" id="city" />
+            </li>
+            <li id="state-area">
+              <label for="state">State</label>
+              <input type="text" name="state" id="state" />
+            </li>
+          </ol>
+        </li>
+        <li id="credit-area">
+          <label for="credit">Credit Card Number</label>
+          <input type="text" name="credit" id="credit" />
+        </li>
+
+
         <li id="submit-area">
           <input type="submit" name="order" id="order" value="Place Your Order" />
         </li>
