@@ -1,9 +1,79 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>exploit_Disrupt</title>
+<head id="head-discovery">
+  <title>exploit_Disrupt Discovery</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
   <link rel="stylesheet" href="assets/css/screen.css" />
-  <script type="text/javascript" src="assets/js/site.js"></script>
+  <script src="assets/js/site.js"></script>
 </head>
+<body id="body-discovery">
+  <header id="header-discovery">
+    <h1>exploit_Disrupt</h1>
+  </header>
+  <main id="content-discovery">
+    <section>
+      <h2>Filter:</h2>
+      <form id="filter" action="index.html" method="post">
+        <ul>
+          <li id="filter-li-location">
+            <label for="location">Location</label>
+            <select name="location" id="location">
+              <option value="Any">Any</option>
+              <option value="Chicagoland">Chicagoland</option>
+              <option value="New York">New York</option>
+              <option value="Texas">Texas</option>
+              <option value="San Francisco">San Francisco</option>
+            </select>
+          </li>
+          <li id="filter-li-cost">
+            <label for="cost">Cost</label>
+            <select name="cost" id="cost">
+              <option value="Any">Any</option>
+              <option value="Free">Free</option>
+              <option value="Payed Events">Payed Events</option>
+            </select>
+          </li>
+          <li id="filter-li-type">
+            <label for="type">Type of Event</label>
+            <select name="type" id="type">
+              <option value="Any">Any</option>
+              <option value="Certification/Training">Certification/Training</option>
+              <option value="Management">Management</option>
+              <option value="Organization">Organization</option>
+              <option value="Business">Business</option>
+            </select>
+          </li>
+        </ul>
+      </form>
+    </section>
+    <section>
+      <h2>Event List</h2>
+      <ul id="event-list">
+        <li id="meeting-your" class="event-entry">
+          <a href="description/">
+          <img src="assets/img/SBDC.png"
+          alt="SBDC Banner Image" />
+          <p class="event-title">Meeting Your Cyber Security Challenges in 5 Steps</p></a>
+          <ul class="event-info">
+            <li class="event-time-date">Thu, May 30, 4:00pm</li>
+            <li class="event-location">TEC 4950 on the campus of Bethel New Life, Chicago, IL</li>
+            <li class="event-price">Free</li>
+          </ul>
+        </li>
+        <li id="forensecure" class="event-entry">
+          <a href="description/">
+          <img src="assets/img/forensecure.jpg"
+          alt="ForenSecure Banner Image" />
+          <p class="event-title">ForenSecure '20</p></a>
+          <ul class="event-info">
+            <li class="event-time-date">Thu, April 8, 7:30am</li>
+            <li class="event-location">IIT Tower on the campus of Illinois Institute of Technology, Chicago, IL</li>
+            <li class="event-price">$40</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
