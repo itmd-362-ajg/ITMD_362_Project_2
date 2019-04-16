@@ -110,6 +110,10 @@ input[type="submit"]:disabled {
   color: #b3b3b3;
 }
 
+#event-list img {
+  display: block;
+  max-width: 15em;
+}
 
 /* Form Layout */
 #signup-form ol {
