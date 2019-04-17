@@ -55,9 +55,12 @@ a[role="button"] {
   padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
 }
 
-#signup-form {
-  background: #cc3300;
-  color: #222;
+@media screen and (min-width: 820px) {
+  #content {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 
