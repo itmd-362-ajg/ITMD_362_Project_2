@@ -56,7 +56,7 @@ a[role="button"] {
 }
 
 @media screen and (min-width: 820px) {
-  #content {
+  #form-content {
     display: flex;
     flex-direction: column;
     grid-template-columns: 1fr 2fr;
@@ -119,6 +119,12 @@ input[type="submit"]:disabled {
 }
 
 /* Form Layout */
+
+#signup-form {
+background: #cc3300;
+color: #222;
+}
+
 #signup-form ol {
   /*
   display: flex;
