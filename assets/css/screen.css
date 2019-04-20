@@ -166,7 +166,69 @@ color: #222;
   color: #EEE;
 }
 
+#descrip-contents {
+  display: grid;
+  grid-template-columns: 66.666% 33.333%;
+}
+#descrip-main {
+  padding-left: 20%;
+  padding-right: 20%;
 
+}
+
+.event-info-descrip {
+  padding: 5%;
+
+}
+
+.event-info-descrip li{
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.register {
+  padding-top: 1.0em;
+  padding-bottom: 1.0em;
+  width: auto;
+  height: auto;
+  text-align: center;
+  border-radius: 0.5em;
+  transition: 0.4s;
+}
+.register a {
+  /*margin:auto;*/
+  padding-top: 1.0em;
+  padding-bottom: 1.0em;
+  padding-left: 25%;
+  padding-right: 25%;
+  background-color: #801515;
+  text-decoration: none;
+  color: white;
+  border-radius: 0.5em;
+}
+
+.event-img-descrip {
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+/*.register :hover {
+  background-color: grey;
+  border-radius: 0.5em;
+  transition: 0.4s;
+}*/
+
+/*Controls color transitions for hovering and clicking menu buttons*/
+.register a:active {
+  background-color: #550000;
+  transition: 0.4s;
+}
+.register a:hover {
+  background-color: #d46a46;
+  transition: 0.4s;
+}
 /* State */
 .hidden {
   display: none;
@@ -207,11 +269,31 @@ body.g:active::after {
     padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
     /*padding: 6%;*/
   }
+  #descrip-contents {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+  }
+  #descrip-main {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 @media screen and (min-width: 820px) {
   #content {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+  }
+  #descrip-contents {
+    display: grid;
+    grid-template-columns: 66.666% 33.333%;
+  }
+  #descrip-main {
+    padding-left: 20%;
+    padding-right: 20%;
   }
 }
