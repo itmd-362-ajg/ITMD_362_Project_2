@@ -82,6 +82,20 @@
 
   document.addEventListener('DOMContentLoaded', function(){
     // Select the necessary elements from the DOM
+    var test = document.getElementById("meeting-your");
+    console.log(test.id + "-add");
+    document.addEventListener('click', function(event){
+
+      if(event.target.tagName=='A'){
+        var eventname = event.target.id + "-title";
+        localStorage.setItem("what-we-got", eventname);
+        localStorage.setItem("event-title", document.getElementById(eventname).innerHTML );
+
+
+      }
+    });
+
+/*
     var order = {};
     var location = {};
     order.form = document.querySelector('#order-form');
@@ -184,7 +198,7 @@
       e.preventDefault();
       console.log('Caught the submit event on JS refactor');
     });
-
+*/
   // End of DOMContentLoaded
   });
 
