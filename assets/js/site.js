@@ -84,7 +84,7 @@
     //  detect button click to save event info to local storage
     document.addEventListener('click', function(event){
       if(event.target.tagName=='A'){
-        localStorage.clear();
+        //localStorage.clear();
         var eventname = event.target.id;
         localStorage.setItem("event-id", eventname);
         localStorage.setItem("event-title", document.getElementById(eventname + "-title").innerHTML);
