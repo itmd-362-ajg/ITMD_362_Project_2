@@ -102,6 +102,8 @@
 
   function set_event_info() {
       //  get all elements
+      var descripPage= document.getElementById("body-description")
+      if(descripPage != null){
       var eventPic = document.getElementById("descrip-img");
       var eventStartDate = document.getElementById("descrip-start-date");
       var eventTitle = document.getElementById("descrip-title");
@@ -113,7 +115,12 @@
       var eventFullLocation = document.getElementById("descrip-full-location");
 
       //  Set all elements from local storage
+      try {
       eventPic.src = localStorage.getItem("event-img");
+      }
+      catch {
+        throw "no image to set";
+      }
       eventStartDate.innerHTML = localStorage.getItem("event-start-date");
       eventTitle.innerHTML = localStorage.getItem("event-title");
       eventOrg.innerHTML = localStorage.getItem("event-Org");
@@ -122,6 +129,13 @@
       eventDescrip.innerHTML = localStorage.getItem("event-descrip");
       eventEndDate.innerHTML = localStorage.getItem("event-end-date");
       eventFullLocation.innerHTML = localStorage.getItem("event-full-location");
+    }
+
+  }
+
+  function set_event_info_signup(){
+    var eventPrice = document.getElementById("event-price");
+    eventPrice.innerHTML = localStorage.getItem("event-price");
   }
 
   document.addEventListener('DOMContentLoaded', function(){
@@ -133,6 +147,21 @@
 
     save_event_info();
     set_event_info();
+    set_event_info_signup();
+
+
+
+
+    document.addEventListener('click', function(event){
+      //if(event.target.id=='number-tickets-box'){
+
+        var numberOfTickets = document.getElementById("number-tickets-box").value;
+        var totalCost = numberOfTickets*2;
+        console.log(numberOfTickets);
+        console.log("Total Cost: " + totalCost);
+      //}
+    });
+
 /*
     var order = {};
     var location = {};
