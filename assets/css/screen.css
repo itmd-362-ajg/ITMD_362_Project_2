@@ -218,6 +218,25 @@ input[type="submit"]:disabled {
   border-radius: 0.5em;
 }
 
+.custom-button-link {
+  padding-top: 1.0em;
+  padding-bottom: 1.0em;
+  padding-left: 25%;
+  padding-right: 25%;
+  background-color: #801515;
+  text-decoration: none;
+  color: white;
+  border-radius: 0.5em;
+}
+
+.custom-button-link:active {
+  background-color: #550000;
+  transition: 0.4s;
+}
+.custom-button-link:hover {
+  background-color: #d46a46;
+  transition: 0.4s;
+}
 .event-img-descrip {
   object-fit: cover;
   object-position: center center;

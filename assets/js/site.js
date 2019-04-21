@@ -80,21 +80,35 @@
     return validate(zip.length, eq, 5);
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
-    // Select the necessary elements from the DOM
-    var test = document.getElementById("meeting-your");
-    console.log(test.id + "-add");
+  function save_event_info(){
     document.addEventListener('click', function(event){
-
       if(event.target.tagName=='A'){
-        var eventname = event.target.id + "-title";
-        localStorage.setItem("what-we-got", eventname);
-        localStorage.setItem("event-title", document.getElementById(eventname).innerHTML );
-
-
+        localStorage.clear();
+        var eventname = event.target.id;
+        localStorage.setItem("event-id", eventname);
+        localStorage.setItem("event-title", document.getElementById(eventname + "-title").innerHTML);
+        localStorage.setItem("event-start-date", document.getElementById(eventname + "-start-date").innerHTML);
+        localStorage.setItem("event-brief-location", document.getElementById(eventname + "-brief-location").innerHTML);
+        localStorage.setItem("event-price", document.getElementById(eventname + "-price").innerHTML);
+        localStorage.setItem("event-end-date", document.getElementById(eventname + "-end-date").innerHTML);
+        localStorage.setItem("event-full-location", document.getElementById(eventname + "-full-location").innerHTML);
+        localStorage.setItem("event-org", document.getElementById(eventname + "-org").innerHTML);
+        localStorage.setItem("event-descrip", document.getElementById(eventname + "-descrip").innerHTML);
       }
     });
+  }
 
+  function set_event_info() {
+
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    // Select the necessary elements from the DOM
+    /*var test = document.getElementById("meeting-your");
+    console.log(test.id + "-add");*/
+
+    //  save event info from main page
+    save_event_info();
 /*
     var order = {};
     var location = {};
