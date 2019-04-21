@@ -81,6 +81,7 @@
   }
 
   function save_event_info(){
+    //  detect button click to save event info to local storage
     document.addEventListener('click', function(event){
       if(event.target.tagName=='A'){
         localStorage.clear();
@@ -94,12 +95,33 @@
         localStorage.setItem("event-full-location", document.getElementById(eventname + "-full-location").innerHTML);
         localStorage.setItem("event-org", document.getElementById(eventname + "-org").innerHTML);
         localStorage.setItem("event-descrip", document.getElementById(eventname + "-descrip").innerHTML);
+        localStorage.setItem("event-img", document.getElementById(eventname + "-img").src);
       }
     });
   }
 
   function set_event_info() {
+      //  get all elements
+      var eventPic = document.getElementById("descrip-img");
+      var eventStartDate = document.getElementById("descrip-start-date");
+      var eventTitle = document.getElementById("descrip-title");
+      var eventOrg = document.getElementById("descrip-org");
+      var eventBriefLocation = document.getElementById("descrip-brief-location");
+      var eventPrice = document.getElementById("descrip-price");
+      var eventDescrip = document.getElementById("descrip-descrip");
+      var eventEndDate = document.getElementById("descrip-end-date");
+      var eventFullLocation = document.getElementById("descrip-full-location");
 
+      //  Set all elements from local storage
+      eventPic.src = localStorage.getItem("event-img");
+      eventStartDate.innerHTML = localStorage.getItem("event-start-date");
+      eventTitle.innerHTML = localStorage.getItem("event-title");
+      eventOrg.innerHTML = localStorage.getItem("event-Org");
+      eventBriefLocation.innerHTML = localStorage.getItem("event-brief-location");
+      eventPrice.innerHTML = localStorage.getItem("event-price");
+      eventDescrip.innerHTML = localStorage.getItem("event-descrip");
+      eventEndDate.innerHTML = localStorage.getItem("event-end-date");
+      eventFullLocation.innerHTML = localStorage.getItem("event-full-location");
   }
 
   document.addEventListener('DOMContentLoaded', function(){
@@ -107,8 +129,10 @@
     /*var test = document.getElementById("meeting-your");
     console.log(test.id + "-add");*/
 
-    //  save event info from main page
+    //  save event info from main page and load to new page
+
     save_event_info();
+    set_event_info();
 /*
     var order = {};
     var location = {};
