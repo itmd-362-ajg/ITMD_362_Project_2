@@ -115,12 +115,8 @@
       var eventFullLocation = document.getElementById("descrip-full-location");
 
       //  Set all elements from local storage
-      try {
+
       eventPic.src = localStorage.getItem("event-img");
-      }
-      catch {
-        throw "no image to set";
-      }
       eventStartDate.innerHTML = localStorage.getItem("event-start-date");
       eventTitle.innerHTML = localStorage.getItem("event-title");
       eventOrg.innerHTML = localStorage.getItem("event-Org");
