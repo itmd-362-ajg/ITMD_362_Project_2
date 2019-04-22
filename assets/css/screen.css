@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Encode+Sans:600,700,800&subset=latin-ext");
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900");
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -33,8 +33,9 @@ h1 {
   line-height: 1.5107814861em; /* 44 / 29.124 = 1.5107814861 */
 }
 
-p {
+h3 {
   font-family: "Playfair Display", serif;
+  font-weight: 700;
   padding-bottom: 1.2222222222em;
 }
 
@@ -58,6 +59,23 @@ a[role="button"] {
   margin-left: auto;
   margin-right: auto;
 }
+
+#event-section {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#event-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 0.305em;
+  list-style: none;
+  padding: 0.305em;
+}
+
+
+
+
 
 /*@media screen and (min-width: 820px) {
   #form-content {
@@ -113,6 +131,12 @@ input[type="submit"]:disabled {
   font-style: italic;
 }
 
+.event-entry {
+  border: dashed 0.0763em #d3d3d3;
+  display: flex;
+  flex-flow: column wrap;
+}
+
 .hint b {
   color: #b3b3b3;
 }
@@ -120,6 +144,37 @@ input[type="submit"]:disabled {
 #event-list img {
   display: block;
   max-width: 15em;
+}
+
+#event-section h2 {
+  width: 100%;
+}
+
+.event-info-descrip li {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.register a {
+  /*margin:auto;*/
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 25%;
+  padding-right: 25%;
+  background-color: #801515;
+  text-decoration: none;
+  color: white;
+  border-radius: 0.5em;
+}
+
+/*Controls color transitions for hovering and clicking menu buttons*/
+.register a:active {
+  background-color: #550000;
+  transition: 0.4s;
+}
+.register a:hover {
+  background-color: #d46a46;
+  transition: 0.4s;
 }
 
 /* Form Layout */
@@ -149,7 +204,7 @@ input[type="submit"]:disabled {
 }
 
 #credit-security-area {
-	width: 5em;
+  width: 5em;
 }
 
 /* Size-Selector Control */
@@ -192,37 +247,21 @@ input[type="submit"]:disabled {
 
 }
 
-.event-info-descrip li{
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
-}
+
 
 .register {
-  padding-top: 1.0em;
-  padding-bottom: 1.0em;
-  width: auto;
-  height: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
   text-align: center;
   border-radius: 0.5em;
   transition: 0.4s;
 }
-.register a {
-  /*margin:auto;*/
-  padding-top: 1.0em;
-  padding-bottom: 1.0em;
-  padding-left: 25%;
-  padding-right: 25%;
-  background-color: #801515;
-  text-decoration: none;
-  color: white;
-  border-radius: 0.5em;
-}
+
+
 
 .custom-button-link {
-  padding-top: 1.0em;
-  padding-bottom: 1.0em;
-  padding-left: 25%;
-  padding-right: 25%;
+  padding: 0.9166666665em;
   background-color: #801515;
   text-decoration: none;
   color: white;
@@ -233,10 +272,31 @@ input[type="submit"]:disabled {
   background-color: #550000;
   transition: 0.4s;
 }
+
 .custom-button-link:hover {
   background-color: #d46a46;
   transition: 0.4s;
 }
+
+.event-img {
+  padding-bottom: 1.2222222222em;
+}
+
+.event-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.125em;
+  padding-bottom: 0.6111111111em;
+}
+
+.event-info {
+  font-family: "Encode Sans", sans-serif;
+  font-size: 0.618em; /* 18 / 16 = 1.125 */
+  line-height: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
+}
+
+
+
+
 .event-img-descrip {
   object-fit: cover;
   object-position: center center;
@@ -250,15 +310,7 @@ input[type="submit"]:disabled {
   transition: 0.4s;
 }*/
 
-/*Controls color transitions for hovering and clicking menu buttons*/
-.register a:active {
-  background-color: #550000;
-  transition: 0.4s;
-}
-.register a:hover {
-  background-color: #d46a46;
-  transition: 0.4s;
-}
+
 /* State */
 .hidden {
   display: none;
@@ -318,12 +370,18 @@ body.g:active::after {
     grid-column-gap: 1em;
     grid-row-gap: 1em;
   }
+
   #descrip-contents {
     display: grid;
     grid-template-columns: 66.666% 33.333%;
   }
+
   #descrip-main {
     padding-left: 20%;
     padding-right: 20%;
+  }
+
+  #event-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
