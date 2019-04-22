@@ -74,6 +74,7 @@ a[role="button"] {
 
 #event-list {
   display: grid;
+  flex: 1 0 50%;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 0.305em;
   list-style: none;
@@ -187,7 +188,7 @@ input[type="submit"]:disabled {
 /* Form Layout */
 #signup-form {
   background: #cc3300;
-  color: #222;
+  color: #fff;
   max-width: 30em;
   display: block;
   margin-left: auto;
@@ -391,5 +392,17 @@ body.g:active::after {
 
   #event-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #event-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #event-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
