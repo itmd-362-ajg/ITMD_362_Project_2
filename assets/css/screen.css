@@ -74,6 +74,7 @@ a[role="button"] {
 
 #event-list {
   display: grid;
+  flex: 1 0 50%;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 0.305em;
   list-style: none;
@@ -391,5 +392,17 @@ body.g:active::after {
 
   #event-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #event-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #event-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
