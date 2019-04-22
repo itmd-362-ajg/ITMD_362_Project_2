@@ -138,13 +138,7 @@
     eventName.innerHTML = localStorage.getItem("event-title");
     }
   }
-    function removeDollar(value){
-      while(value.charAt(0) == '$')
-      {
-       value = value.substr(1);
-      }
-      return value;
-    }
+    
   function eventPricing(){
     document.addEventListener('click', function(event){
 
@@ -158,7 +152,7 @@
         {
          costOfTickets = costOfTickets.substr(1);
        }*/
-        costOfTickets=removeDollar(costOfTickets);
+        costOfTickets=clean_nonnumbers(costOfTickets);
 
         //var eventPrice = document.getElementById("event-price");
         //eventPrice.innerHTML = costOfTickets;
@@ -340,7 +334,7 @@
       var email = emailItem.value;
       var creditNum = creditNumItem.value;
 
-      costPerTicket = removeDollar(costPerTicket);
+      costPerTicket = clean_nonnumbers(costPerTicket);
       var totalCostOrder = costPerTicket*numberOfTickets;
       var submitButton = document.getElementById("order");
 
