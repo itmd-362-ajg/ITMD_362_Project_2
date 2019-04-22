@@ -12,6 +12,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 /* Begin site styles below */
 
+/* Base Styles */
+/* Layout */
+/* Module Section */
+/* State */
+
 /*
   base font-size: 18px
   base line-height: 22px
@@ -19,6 +24,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
   https://www.modularscale.com/?18&px&1.618
 */
 
+/* --- Base Styles --- */
 html {
   background: #ffffff;
   color: #666699;
@@ -29,15 +35,12 @@ html {
 
 h1 {
   color: #cc0000;
+  display: block;
   font-size: 1.618em; /* 29.124 / 18 = 1.618 */
   line-height: 1.5107814861em; /* 44 / 29.124 = 1.5107814861 */
-  color: #cc0000;
-  font-size: 1.618em;
-  line-height: 1.5107814861em;
-  text-align: center;
-  display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 h3 {
@@ -58,13 +61,14 @@ a[role="button"] {
   text-decoration: none;
 }
 
-/* Layout */
+
+/* --- Layout --- */
 #form-explainer {
-  text-align: center;
-  padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
+  text-align: center;
 }
 
 #event-section {
@@ -75,26 +79,13 @@ a[role="button"] {
 #event-list {
   display: grid;
   flex: 1 0 50%;
-  grid-template-columns: repeat(1, 1fr);
   grid-gap: 0.305em;
+  grid-template-columns: repeat(1, 1fr);
   list-style: none;
   padding: 0.305em;
 }
 
-
-
-
-
-/*@media screen and (min-width: 820px) {
-  #form-content {
-    display: flex;
-    flex-direction: column;
-    grid-template-columns: 1fr 2fr;
-  }
-}*/
-
-
-/* Forms */
+/* --- Forms --- */
 input,
 label,
 select {
@@ -159,95 +150,8 @@ input[type="submit"]:disabled {
 }
 
 .event-info-descrip li {
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
-}
-
-.register a {
-  /*margin:auto;*/
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 25%;
-  padding-right: 25%;
-  background-color: #801515;
-  text-decoration: none;
-  color: white;
-  border-radius: 0.5em;
-}
-
-/*Controls color transitions for hovering and clicking menu buttons*/
-.register a:active {
-  background-color: #550000;
-  transition: 0.4s;
-}
-.register a:hover {
-  background-color: #d46a46;
-  transition: 0.4s;
-}
-
-/* Form Layout */
-#signup-form {
-  background: #cc3300;
-  color: #fff;
-  max-width: 30em;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#signup-form ol {
-  /*
-  display: flex;
-  align-items: flex-end;
-  align-content: stretch;
-  flex-flow: row wrap;
-  */
-
-  padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
-}
-
-#signup-form li {
-  flex: 1 0 auto;
-  padding-bottom: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
-}
-
-#credit-security-area {
-  width: 5em;
-}
-
-/* Size-Selector Control */
-#size-touch {
-  display: flex;
-}
-
-#size-touch li {
-  margin-right: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
-}
-
-#size-touch li:last-child {
-  margin-right: 0;
-}
-
-#size-touch a {
-  background-color: #EEE;
-  border: 1px solid #b3b3b3;
-  color: #666699;
-  padding: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
-}
-
-#size-touch a.selected {
-  background-color: #b3b3b3;
-  color: #EEE;
-}
-
-#descrip-contents {
-  display: grid;
-  grid-template-columns: 66.666% 33.333%;
-}
-#descrip-main {
-  padding-left: 20%;
-  padding-right: 20%;
-
+  /* vertical | horizontal */
+  padding: 2.5% 0;
 }
 
 .event-info-descrip {
@@ -255,25 +159,20 @@ input[type="submit"]:disabled {
 
 }
 
-
-
 .register {
+  border-radius: 0.5em;
   padding-top: 1em;
   padding-bottom: 1em;
-
   text-align: center;
-  border-radius: 0.5em;
   transition: 0.4s;
 }
 
-
-
 .custom-button-link {
-  padding: 0.9166666665em;
   background-color: #801515;
-  text-decoration: none;
-  color: white;
   border-radius: 0.5em;
+  color: white;
+  padding: 0.9166666665em;
+  text-decoration: none;
 }
 
 .custom-button-link:active {
@@ -302,35 +201,107 @@ input[type="submit"]:disabled {
   line-height: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
 }
 
-
-
-
 .event-img-descrip {
-  object-fit: cover;
-  object-position: center center;
   display: block;
   margin: auto;
+  object-fit: cover;
+  object-position: center center;
   width: 100%;
 }
+
+/* --- Controls color transitions for hovering and clicking menu buttons --- */
 /*.register :hover {
   background-color: grey;
   border-radius: 0.5em;
   transition: 0.4s;
 }*/
 
+.register a {
+  /* top | right | bottom | left */
+  /*margin:auto;*/
+  background-color: #801515;
+  border-radius: 0.5em;
+  color: white;
+  padding: 1em 25% 1em 25%;
+  text-decoration: none;
+}
 
-/* State */
+.register a:active {
+  background-color: #550000;
+  transition: 0.4s;
+}
+
+.register a:hover {
+  background-color: #d46a46;
+  transition: 0.4s;
+}
+
+/* --- Form Layout --- */
+#signup-form {
+  background: #cc3300;
+  color: #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30em;
+}
+
+#signup-form ol {
+  /*
+  display: flex;
+  align-items: flex-end;
+  align-content: stretch;
+  flex-flow: row wrap;
+  */
+  padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
+}
+
+#signup-form li {
+  flex: 1 0 auto;
+  padding-bottom: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
+}
+
+#credit-security-area {
+  width: 5em;
+}
+
+/* --- Size-Selector Control --- */
+#size-touch {
+  display: flex;
+}
+
+#size-touch li {
+  margin-right: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
+}
+
+#size-touch li:last-child {
+  margin-right: 0;
+}
+
+#size-touch a {
+  background-color: #EEE;
+  border: 1px solid #b3b3b3;
+  color: #666699;
+  padding: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
+}
+
+#size-touch a.selected {
+  background-color: #b3b3b3;
+  color: #EEE;
+}
+
+
+/* --- State --- */
 .hidden {
   display: none;
 }
 
-/* Diagnostic CSS */
+/* --- Diagnostic CSS --- */
 /**
 * A quick baseline grid overlay using css+svg.
 * Inspired by [Basehold.it](https://basehold.it/).
 * @author leshido
 */
-
 body.g {
   position: relative;
 }
@@ -338,51 +309,58 @@ body.g {
 body.g::after {
   /* Change the `height` parameter here to match your base line-height. */
   background: url('data:image/svg+xml;utf8,<svg height="22" width="1" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="0.5" style="fill:rgba(255, 0, 255, 0.8)" /></svg>') repeat top left;
-
+  bottom: 0;
   content: "";
   display: block;
-  pointer-events: none;
-  top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  z-index: 9999;
+  pointer-events: none;
   position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9999;
 }
 
 body.g:active::after {
   display: none;
 }
 
+/* --- Media Querys --- */
 @media screen and (min-width: 360px) {
+  /* Base Styles */
   html {
     padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
     /*padding: 6%;*/
   }
+  /* Layout */
   #descrip-contents {
     display: grid;
-    grid-template-columns: 1fr;
     grid-column-gap: 1em;
     grid-row-gap: 1em;
+    grid-template-columns: 1fr;
   }
+
   #descrip-main {
     padding-left: 5%;
     padding-right: 5%;
   }
+  /* Module Section */
+  /* State */
 }
 
 @media screen and (min-width: 820px) {
+  /* Base Styles */
+  /* Layout */
   #content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
     grid-column-gap: 1em;
     grid-row-gap: 1em;
+    grid-template-columns: 1fr 2fr;
   }
 
   #descrip-contents {
     display: grid;
     grid-template-columns: 66.666% 33.333%;
-	padding: 1em;
+    padding: 1em;
   }
 
   #descrip-main {
@@ -393,16 +371,26 @@ body.g:active::after {
   #event-list {
     grid-template-columns: repeat(2, 1fr);
   }
+  /* Module Section */
+  /* State */
 }
 
 @media screen and (min-width: 1200px) {
+  /* Base Styles */
+  /* Layout */
   #event-list {
     grid-template-columns: repeat(3, 1fr);
   }
+  /* Module Section */
+  /* State */
 }
 
 @media screen and (min-width: 1600px) {
+  /* Base Styles */
+  /* Layout */
   #event-list {
     grid-template-columns: repeat(4, 1fr);
   }
+  /* Module Section */
+  /* State */
 }
