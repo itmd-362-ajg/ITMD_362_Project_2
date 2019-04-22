@@ -187,7 +187,7 @@ input[type="submit"]:disabled {
 /* Form Layout */
 #signup-form {
   background: #cc3300;
-  color: #222;
+  color: #fff;
   max-width: 30em;
   display: block;
   margin-left: auto;
