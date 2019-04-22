@@ -31,9 +31,6 @@ h1 {
   color: #cc0000;
   font-size: 1.618em; /* 29.124 / 18 = 1.618 */
   line-height: 1.5107814861em; /* 44 / 29.124 = 1.5107814861 */
-  color: #cc0000;
-  font-size: 1.618em;
-  line-height: 1.5107814861em;
   text-align: center;
   display: block;
   margin-left: auto;
@@ -382,7 +379,7 @@ body.g:active::after {
   #descrip-contents {
     display: grid;
     grid-template-columns: 66.666% 33.333%;
-	padding: 1em;
+    padding: 1em;
   }
 
   #descrip-main {
