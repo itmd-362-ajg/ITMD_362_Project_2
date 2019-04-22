@@ -103,7 +103,8 @@
   function set_event_info() {
       //  get all elements
       var descripPage= document.getElementById("body-description")
-      if(descripPage != null){
+      var confirmPage= document.getElementById("body-confirmation")
+      if(descripPage != null || confirmPage != null){
       var eventPic = document.getElementById("descrip-img");
       var eventStartDate = document.getElementById("descrip-start-date");
       var eventTitle = document.getElementById("descrip-title");
@@ -130,8 +131,185 @@
   }
 
   function set_event_info_signup(){
+    if(document.getElementById("form-content")!=null){
     var eventPrice = document.getElementById("event-price");
     eventPrice.innerHTML = localStorage.getItem("event-price");
+    var eventName = document.getElementById("event-name");
+    eventName.innerHTML = localStorage.getItem("event-title");
+    }
+  }
+    function removeDollar(value){
+      while(value.charAt(0) == '$')
+      {
+       value = value.substr(1);
+      }
+      return value;
+    }
+  function eventPricing(){
+    document.addEventListener('click', function(event){
+
+
+        var numberOfTickets = document.getElementById("number-tickets-box").value;
+        var costOfTickets = document.getElementById("event-price").innerHTML;
+        var totalCostItem = document.getElementById("event-total-cost");
+
+
+        /*while(costOfTickets.charAt(0) == '$')
+        {
+         costOfTickets = costOfTickets.substr(1);
+       }*/
+        costOfTickets=removeDollar(costOfTickets);
+
+        //var eventPrice = document.getElementById("event-price");
+        //eventPrice.innerHTML = costOfTickets;
+
+        var totalCost = numberOfTickets*costOfTickets;
+
+        totalCostItem.innerHTML = "$" + totalCost;
+
+        console.log("number of tickets "+numberOfTickets);
+        console.log("cost per tickets "+costOfTickets);
+        console.log("Total Cost: " + totalCost);
+
+
+
+    });
+  }
+
+  //  Finds if value is not empty
+  function not_empty(value) {
+
+    if(value == ""){
+      return(false);
+    }else{
+      return(true);
+    }
+  }
+
+  // Finds if email is valid
+  function validate_email(value){
+    var re = /^[^@\s]+@[^@\s]+$/g;
+    console.log(value);
+    return(re.test(value));
+
+  }
+
+
+
+  function validate_string_length(string_name, how_long){
+    if(string_name.length == how_long){
+      return(true);
+    }
+    else{
+      return(false);
+    }
+  }
+
+  // functions to remove characters not used for input
+  function clean_nonnumbers(value) {
+    // returns string with no characters that aren't numbers
+    return (value.replace(/\D/g,''));
+  }
+  function formValidate() {
+    var formItem = document.getElementById("form-content");
+
+    if(formItem!=null){
+    formItem.addEventListener('keyup',function(){
+      var firstName = document.getElementById("first-name");
+      var lastName = document.getElementById("last-name");
+      var costPerTiecket = document.getElementById("tickets");
+      var numberOfTickets = document.getElementById("number-tickets-box");
+      var email = document.getElementById("email");
+      var address = document.getElementById("address");
+      var zipCode = document.getElementById("zip");
+      var cityArea = document.getElementById("city");
+      var stateArea = document.getElementById("state");
+      var creditArea = document.getElementById("credit");
+      var creditSecurityCode = document.getElementById("credit-security");
+      var submitButton = document.getElementById("order");
+
+      submitButton.disabled=true;
+
+      if(not_empty(firstName.value)){
+        document.getElementById("first-name-valid").innerHTML = "Valid Name";
+      }
+      else{
+        document.getElementById("first-name-valid").innerHTML = "Invalid Name";
+      }
+
+      if(not_empty(lastName.value)){
+        document.getElementById("last-name-valid").innerHTML = "Valid Name";
+      }
+      else{
+        document.getElementById("last-name-valid").innerHTML = "Invalid Name";
+      }
+
+      if(numberOfTickets.value != ""){
+        document.getElementById("event-price-valid").innerHTML = "Valid number of tickets";
+      }
+      else{
+        document.getElementById("event-price-valid").innerHTML = "Invalid number of tickets";
+      }
+
+      if(validate_email(email.value)){
+        document.getElementById("email-valid").innerHTML = "Valid email address";
+      }
+      else{
+        document.getElementById("email-valid").innerHTML = "Invalid email address";
+      }
+
+      if(not_empty(address.value)){
+        document.getElementById("address-valid").innerHTML = "Valid address";
+      }
+      else{
+        document.getElementById("address-valid").innerHTML = "Invalid address";
+      }
+
+      if(validate_string_length(zipCode.value, 5)){
+        document.getElementById("zip-valid").innerHTML = "Valid zip code";
+      }
+      else{
+        document.getElementById("zip-valid").innerHTML = "Invalid zip code";
+      }
+
+      if(not_empty(cityArea.value)){
+        document.getElementById("city-valid").innerHTML = "Valid city";
+      }
+      else{
+        document.getElementById("city-valid").innerHTML = "Invalid city";
+      }
+
+      if(not_empty(stateArea.value)){
+        document.getElementById("state-valid").innerHTML = "Valid state";
+      }
+      else{
+        document.getElementById("state-valid").innerHTML = "Invalid state";
+      }
+
+      if(validate_string_length(creditArea.value, 16)){
+        document.getElementById("credit-valid").innerHTML = "Valid credit card number";
+      }
+      else{
+        document.getElementById("credit-valid").innerHTML = "Invalid credit card number";
+      }
+
+      if(validate_string_length(creditSecurityCode.value, 3)){
+        document.getElementById("credit-security-valid").innerHTML = "Valid security code";
+      }
+      else{
+        document.getElementById("credit-security-valid").innerHTML = "Invalid security code";
+      }
+
+
+      if(not_empty(firstName.value) && not_empty(lastName.value) && numberOfTickets.value != "" && validate_email(email.value) && not_empty(address.value) && validate_string_length(zipCode.value, 5) && not_empty(cityArea.value) && not_empty(stateArea.value) && validate_string_length(creditArea.value, 16) && validate_string_length(creditSecurityCode.value, 3))
+      {
+        submitButton.disabled=false;
+      }
+      else {
+        submitButton.disabled=true;
+      }
+    });
+  }
   }
 
   document.addEventListener('DOMContentLoaded', function(){
@@ -144,19 +322,14 @@
     save_event_info();
     set_event_info();
     set_event_info_signup();
+    eventPricing();
+    formValidate();
 
 
-
-
-    document.addEventListener('click', function(event){
-      //if(event.target.id=='number-tickets-box'){
-
-        var numberOfTickets = document.getElementById("number-tickets-box").value;
-        var totalCost = numberOfTickets*2;
-        console.log(numberOfTickets);
-        console.log("Total Cost: " + totalCost);
-      //}
-    });
+    var submitButton = document.getElementById("order");
+    if(submitButton!=null){
+    submitButton.disabled=true;
+    }
 
 /*
     var order = {};
