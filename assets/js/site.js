@@ -312,6 +312,85 @@
   }
   }
 
+  function generateOrderNumber(){
+    var orderNum = Math.floor(100000 + Math.random() * 900000);
+    return(orderNum);
+  }
+
+  function saveOrderInfo(){
+
+
+
+    document.addEventListener('click', function(event){
+    //console.log(creditArea);
+
+    if(event.target.id == "order"){
+
+      var firstNameItem = document.getElementById("first-name");
+      var lastNameItem = document.getElementById("last-name");
+      var costPerTicketItem = document.getElementById("event-price");
+      var numberOfTicketsItem = document.getElementById("number-tickets-box");
+      var emailItem = document.getElementById("email");
+      var creditNumItem = document.getElementById("credit");
+
+      var firstName = firstNameItem.value;
+      var lastName = lastNameItem.value;
+      var costPerTicket = costPerTicketItem.innerHTML;
+      var numberOfTickets = numberOfTicketsItem.value;
+      var email = emailItem.value;
+      var creditNum = creditNumItem.value;
+
+      costPerTicket = removeDollar(costPerTicket);
+      var totalCostOrder = costPerTicket*numberOfTickets;
+      var submitButton = document.getElementById("order");
+
+      while(creditNum.length > 4)
+      {
+       creditNum = creditNum.substr(1);
+      }
+
+
+      console.log("first " + firstName);
+      console.log("last " + lastName);
+      console.log("cost " + costPerTicket);
+      console.log("num " + numberOfTickets);
+      console.log("email " + email);
+      console.log("credit " + creditNum);
+      //console.log(creditArea);
+
+      localStorage.setItem("order-first-name", firstName);
+      localStorage.setItem("order-last-name", lastName);
+      localStorage.setItem("order-cost", totalCostOrder);
+      localStorage.setItem("order-email", email);
+      localStorage.setItem("order-credit-last-four", creditNum);
+    }
+    });
+  }
+
+  function readOrderInfo(){
+    var pageName = document.getElementById("body-confirmation");
+    if(pageName != null){
+    var nameItem = document.getElementById("name-thanks");
+    var orderNumItem = document.getElementById("order-number");
+    var totalCostItem = document.getElementById("total-cost");
+    var creditNumberItem = document.getElementById("credit-number");
+    var emailItem = document.getElementById("emailed-to");
+
+    var name = localStorage.getItem("order-first-name") + " " + localStorage.getItem("order-last-name");
+    var cost = localStorage.getItem("order-cost");
+    var credit = localStorage.getItem("order-credit-last-four");
+    var email = localStorage.getItem("order-email");
+
+
+    nameItem.innerHTML = "Thank You for your order " + name + "!";
+    orderNumItem.innerHTML = "Order Number: " + generateOrderNumber();
+    totalCostItem.innerHTML = "Total Charged: $" + cost;
+    creditNumberItem.innerHTML = "Credit Card Number: XXXX-XXXX-XXXX-" + credit;
+    emailItem.innerHTML = "Order Information and tickets have been emailed to the following email: " + email;
+    }
+
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     // Select the necessary elements from the DOM
     /*var test = document.getElementById("meeting-your");
@@ -324,7 +403,10 @@
     set_event_info_signup();
     eventPricing();
     formValidate();
+    generateOrderNumber();
+    saveOrderInfo();
 
+    readOrderInfo();
 
     var submitButton = document.getElementById("order");
     if(submitButton!=null){
