@@ -52,16 +52,20 @@ a[role="button"] {
 
 /* Layout */
 #form-explainer {
+  text-align: center;
   padding: 1.2222222222em; /* 22 / 18 = 1.2222222222 */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media screen and (min-width: 820px) {
+/*@media screen and (min-width: 820px) {
   #form-content {
     display: flex;
     flex-direction: column;
     grid-template-columns: 1fr 2fr;
   }
-}
+}*/
 
 
 /* Forms */
@@ -119,10 +123,13 @@ input[type="submit"]:disabled {
 }
 
 /* Form Layout */
-
 #signup-form {
-background: #cc3300;
-color: #222;
+  background: #cc3300;
+  color: #222;
+  max-width: 30em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #signup-form ol {
@@ -139,6 +146,10 @@ color: #222;
 #signup-form li {
   flex: 1 0 auto;
   padding-bottom: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
+}
+
+#credit-security-area {
+	width: 5em;
 }
 
 /* Size-Selector Control */
@@ -207,6 +218,25 @@ color: #222;
   border-radius: 0.5em;
 }
 
+.custom-button-link {
+  padding-top: 1.0em;
+  padding-bottom: 1.0em;
+  padding-left: 25%;
+  padding-right: 25%;
+  background-color: #801515;
+  text-decoration: none;
+  color: white;
+  border-radius: 0.5em;
+}
+
+.custom-button-link:active {
+  background-color: #550000;
+  transition: 0.4s;
+}
+.custom-button-link:hover {
+  background-color: #d46a46;
+  transition: 0.4s;
+}
 .event-img-descrip {
   object-fit: cover;
   object-position: center center;
