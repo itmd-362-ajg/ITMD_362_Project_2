@@ -140,27 +140,29 @@
     }
   }
 
+  //  Calculate the cost
+  function calcPrice(){
+    var numberOfTickets = document.getElementById("number-tickets-box").value;
+    var costOfTickets = document.getElementById("event-price").innerHTML;
+    var totalCostItem = document.getElementById("event-total-cost");
+    var totalCost;
+    costOfTickets=clean_nonnumbers(costOfTickets);
 
+    totalCost = numberOfTickets*costOfTickets;
+
+    totalCostItem.innerHTML = "$" + totalCost;
+
+    console.log("number of tickets "+numberOfTickets);
+    console.log("cost per tickets "+costOfTickets);
+    console.log("Total Cost: " + totalCost);
+  }
   //  Calculate total cost
   function eventPricing(){
+    document.addEventListener('keyup', function(event){
+      calcPrice()
+    });
     document.addEventListener('click', function(event){
-
-      var numberOfTickets = document.getElementById("number-tickets-box").value;
-      var costOfTickets = document.getElementById("event-price").innerHTML;
-      var totalCostItem = document.getElementById("event-total-cost");
-      var totalCost;
-      costOfTickets=clean_nonnumbers(costOfTickets);
-
-      totalCost = numberOfTickets*costOfTickets;
-
-      totalCostItem.innerHTML = "$" + totalCost;
-
-      console.log("number of tickets "+numberOfTickets);
-      console.log("cost per tickets "+costOfTickets);
-      console.log("Total Cost: " + totalCost);
-
-
-
+      calcPrice()
     });
   }
 
