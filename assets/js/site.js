@@ -140,27 +140,29 @@
     }
   }
 
+  //  Calculate the cost
+  function calcPrice(){
+    var numberOfTickets = document.getElementById("number-tickets-box").value;
+    var costOfTickets = document.getElementById("event-price").innerHTML;
+    var totalCostItem = document.getElementById("event-total-cost");
+    var totalCost;
+    costOfTickets=clean_nonnumbers(costOfTickets);
 
+    totalCost = numberOfTickets*costOfTickets;
+
+    totalCostItem.innerHTML = "$" + totalCost;
+
+    console.log("number of tickets "+numberOfTickets);
+    console.log("cost per tickets "+costOfTickets);
+    console.log("Total Cost: " + totalCost);
+  }
   //  Calculate total cost
   function eventPricing(){
+    document.addEventListener('keyup', function(event){
+      calcPrice()
+    });
     document.addEventListener('click', function(event){
-
-      var numberOfTickets = document.getElementById("number-tickets-box").value;
-      var costOfTickets = document.getElementById("event-price").innerHTML;
-      var totalCostItem = document.getElementById("event-total-cost");
-      var totalCost;
-      costOfTickets=clean_nonnumbers(costOfTickets);
-
-      totalCost = numberOfTickets*costOfTickets;
-
-      totalCostItem.innerHTML = "$" + totalCost;
-
-      console.log("number of tickets "+numberOfTickets);
-      console.log("cost per tickets "+costOfTickets);
-      console.log("Total Cost: " + totalCost);
-
-
-
+      calcPrice()
     });
   }
 
@@ -212,77 +214,77 @@
         submitButton.disabled=true;
 
         if(not_empty(firstName.value)){
-          document.getElementById("first-name-valid").innerHTML = "Valid Name";
+          document.getElementById("first-name-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("first-name-valid").innerHTML = "Invalid Name";
+          document.getElementById("first-name-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(not_empty(lastName.value)){
-          document.getElementById("last-name-valid").innerHTML = "Valid Name";
+          document.getElementById("last-name-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("last-name-valid").innerHTML = "Invalid Name";
+          document.getElementById("last-name-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(numberOfTickets.value != ""){
-          document.getElementById("event-price-valid").innerHTML = "Valid number of tickets";
+          document.getElementById("event-price-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("event-price-valid").innerHTML = "Invalid number of tickets";
+          document.getElementById("event-price-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(validate_email(email.value)){
-          document.getElementById("email-valid").innerHTML = "Valid email address";
+          document.getElementById("email-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("email-valid").innerHTML = "Invalid email address";
+          document.getElementById("email-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(not_empty(address.value)){
-          document.getElementById("address-valid").innerHTML = "Valid address";
+          document.getElementById("address-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("address-valid").innerHTML = "Invalid address";
+          document.getElementById("address-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(validate_string_length(zipCode.value, 5)){
-          document.getElementById("zip-valid").innerHTML = "Valid zip code";
+          document.getElementById("zip-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("zip-valid").innerHTML = "Invalid zip code";
+          document.getElementById("zip-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(not_empty(cityArea.value)){
-          document.getElementById("city-valid").innerHTML = "Valid city";
+          document.getElementById("city-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("city-valid").innerHTML = "Invalid city";
+          document.getElementById("city-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(not_empty(stateArea.value)){
-          document.getElementById("state-valid").innerHTML = "Valid state";
+          document.getElementById("state-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("state-valid").innerHTML = "Invalid state";
+          document.getElementById("state-valid").src = "../assets/img/red-x-transparent.png";
         }
 
-        if(validate_string_length(creditArea.value, 16)){
-          document.getElementById("credit-valid").innerHTML = "Valid credit card number";
+        if(validate_string_length(clean_nonnumbers(creditArea.value), 16)){
+          document.getElementById("credit-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("credit-valid").innerHTML = "Invalid credit card number";
+          document.getElementById("credit-valid").src = "../assets/img/red-x-transparent.png";
         }
 
         if(validate_string_length(creditSecurityCode.value, 3)){
-          document.getElementById("credit-security-valid").innerHTML = "Valid security code";
+          document.getElementById("credit-security-valid").src = "../assets/img/green-check-transparent.png";
         }
         else{
-          document.getElementById("credit-security-valid").innerHTML = "Invalid security code";
+          document.getElementById("credit-security-valid").src = "../assets/img/red-x-transparent.png";
         }
 
 
-        if(not_empty(firstName.value) && not_empty(lastName.value) && numberOfTickets.value != "" && validate_email(email.value) && not_empty(address.value) && validate_string_length(zipCode.value, 5) && not_empty(cityArea.value) && not_empty(stateArea.value) && validate_string_length(creditArea.value, 16) && validate_string_length(creditSecurityCode.value, 3))
+        if(not_empty(firstName.value) && not_empty(lastName.value) && numberOfTickets.value != "" && validate_email(email.value) && not_empty(address.value) && validate_string_length(zipCode.value, 5) && not_empty(cityArea.value) && not_empty(stateArea.value) && validate_string_length(clean_nonnumbers(creditArea.value), 16) && validate_string_length(creditSecurityCode.value, 3))
         {
           submitButton.disabled=false;
         }
@@ -300,7 +302,7 @@
   }
 
 
-  //  Ave order info after ticket purchase
+  //  Save order info after ticket purchase
   function saveOrderInfo(){
     var firstNameItem;
     var lastNameItem;
@@ -335,7 +337,7 @@
         costPerTicket = costPerTicketItem.innerHTML;
         numberOfTickets = numberOfTicketsItem.value;
         email = emailItem.value;
-        creditNum = creditNumItem.value;
+        creditNum = clean_nonnumbers(creditNumItem.value);
 
         costPerTicket = clean_nonnumbers(costPerTicket);
         totalCostOrder = costPerTicket*numberOfTickets;
