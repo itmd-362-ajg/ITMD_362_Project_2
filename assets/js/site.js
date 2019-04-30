@@ -117,7 +117,7 @@
       eventPic.src = localStorage.getItem("event-img");
       eventStartDate.innerHTML = localStorage.getItem("event-start-date");
       eventTitle.innerHTML = localStorage.getItem("event-title");
-      eventOrg.innerHTML = localStorage.getItem("event-Org");
+      eventOrg.innerHTML = localStorage.getItem("event-org");
       eventBriefLocation.innerHTML = localStorage.getItem("event-brief-location");
       eventPrice.innerHTML = localStorage.getItem("event-price");
       eventDescrip.innerHTML = localStorage.getItem("event-descrip");
@@ -131,12 +131,15 @@
   function set_event_info_signup(){
     var eventPrice;
     var eventName;
+    var eventOrg;
 
     if(document.getElementById("form-content") != null){
       eventPrice = document.getElementById("event-price");
       eventPrice.innerHTML = localStorage.getItem("event-price");
       eventName = document.getElementById("event-name");
       eventName.innerHTML = localStorage.getItem("event-title");
+      eventOrg = document.getElementById("event-org");
+      eventOrg.innerHTML = localStorage.getItem("event-org");
     }
   }
 
@@ -210,6 +213,29 @@
         var creditArea = document.getElementById("credit");
         var creditSecurityCode = document.getElementById("credit-security");
         var submitButton = document.getElementById("order");
+
+        var first_name_valid = document.getElementById("first-name-valid");
+        var last_name_valid = document.getElementById("last-name-valid");
+        var event_price_valid = document.getElementById("event-price-valid");
+        var email_valid = document.getElementById("email-valid");
+        var address_valid = document.getElementById("address-valid");
+        var zip_valid = document.getElementById("zip-valid");
+        var city_valid = document.getElementById("city-valid");
+        var state_valid = document.getElementById("state-valid");
+        var credit_valid = document.getElementById("credit-valid");
+        var credit_security_valid = document.getElementById("credit-security-valid");
+
+
+        first_name_valid.classList.remove("hidden");
+        last_name_valid.classList.remove("hidden");
+        event_price_valid.classList.remove("hidden");
+        email_valid.classList.remove("hidden");
+        address_valid.classList.remove("hidden");
+        zip_valid.classList.remove("hidden");
+        city_valid.classList.remove("hidden");
+        state_valid.classList.remove("hidden");
+        credit_valid.classList.remove("hidden");
+        credit_security_valid.classList.remove("hidden");
 
         submitButton.disabled=true;
 
