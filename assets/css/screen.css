@@ -53,6 +53,10 @@ label {
   color: #EEE;
 }
 
+a {
+  text-decoration: none;
+}
+
 a[role="button"] {
   box-sizing: border-box;
   display: block;
@@ -61,6 +65,15 @@ a[role="button"] {
   text-decoration: none;
 }
 
+input {
+  border: 0;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
+  flex: 1 1 25%;
+}
 
 /* --- Layout --- */
 #form-explainer {
@@ -85,15 +98,11 @@ a[role="button"] {
   padding: 0.305em;
 }
 
-/* --- Forms --- */
-input,
-label,
-select {
-  box-sizing: border-box;
-  display: block;
+#credit-security {
+  width: 25%;
+  flex-grow: 0;
 }
 
-input,
 #eh-submit {
   border: 0;
   font-size: inherit;
@@ -102,6 +111,29 @@ input,
   outline: 0;
   padding: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
   width: 100%;
+}
+
+/* --- Forms --- */
+input,
+label,
+select {
+  box-sizing: border-box;
+  display: block;
+}
+
+.form-item {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.form-item label {
+  width: 100%;
+}
+
+.form-item img {
+  max-width: 2.444444444em;
+  max-height: 2.444444444em;
+  padding-left: 1.2222222222em;
 }
 
 input[type="tel"] {
@@ -259,10 +291,6 @@ input[type="submit"]:disabled {
 #signup-form li {
   flex: 1 0 auto;
   padding-bottom: 0.6111111111em; /* 11 / 18 = 0.6111111111 */
-}
-
-#credit-security-area {
-  width: 5em;
 }
 
 /* --- Size-Selector Control --- */
